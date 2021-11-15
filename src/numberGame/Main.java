@@ -37,6 +37,7 @@ public class Main {
     private static void play()
     {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Note : You have only 3 tries");
 
         int tries = 3;
         int questionCount = 1;
