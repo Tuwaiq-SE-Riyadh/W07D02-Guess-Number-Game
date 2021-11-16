@@ -27,13 +27,16 @@ public class Main {
         System.out.println("Enter 0 to play, 1 to reset and 2 to end");
         int choice = input.nextInt();
         boolean flag = true;
+        int score =0;
+
         while (flag){
             for (int i = 0; i < tries; i++) {
                 if (choice==0){
                     System.out.println("Ques the number!\uD83E\uDD14");
                     int inputNum = input.nextInt();
-                    flag = play(num,inputNum);
+                    flag = play(num,inputNum,score);
                     if (!flag){
+                        score++;
                         break;
                     }
                 }else if (choice==1){
@@ -48,12 +51,19 @@ public class Main {
             }
             flag = false;
         }
+        System.out.println("score "+score);
 
     }
-    public static boolean play(int num1, int num2){
+    public static boolean play(int num1, int num2, int score){
         if (num1 == num2){
-            System.out.println("Winner! \uD83E\uDD73 \uD83E\uDD73");
+            System.out.println("Correct!\uD83D\uDE0E");
+
+            if (score ==3)
+                System.out.println("Winner! \uD83E\uDD73 \uD83E\uDD73");
+
             return false;
+        }else {
+            System.out.println("unCorrect \uD83D\uDE1B");
         }
         return true;
     }
